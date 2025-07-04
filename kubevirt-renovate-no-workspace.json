@@ -5,11 +5,18 @@
   "prHourlyLimit": 0,
   "labels": ["release-note-none"],
   "baseBranches": [
-      "main",
-      "release-1.6"
+      "release-1.5",
+      "release-1.4",
+      "release-1.3",
+      "release-1.2"
   ],
   "enabledManagers": ["gomod"],
   "postUpdateOptions": ["gomodTidy"],
+  "excludeCommitPaths": [
+      "vendor/github.com/golang/glog/**",
+      "vendor/kubevirt.io/api/**",
+      "vendor/kubevirt.io/client-go/**"
+  ],
   "ignorePaths": [
       "staging"
   ],
