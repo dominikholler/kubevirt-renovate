@@ -3,7 +3,6 @@
   "extends": [":gitSignOff", "security:only-security-updates"],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "labels": ["release-note-none"],
   "baseBranches": [
       "main",
       "release-1.6"
