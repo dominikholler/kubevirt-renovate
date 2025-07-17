@@ -9,8 +9,7 @@ REPO=kubevirt/kubevirt
 
 podman run --rm -it -e RENOVATE_FORK_TOKEN=$GITHUB_PAT -e RENOVATE_TOKEN=$GITHUB_AUTHOR_TOKEN -e RENOVATE_REPOSITORIES=$REPO -e LOG_LEVEL=debug  -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make deps-update"]' -e RENOVATE_CONFIG="$(< kubevirt-renovate.json)" -e RENOVATE_ONBOARDING=false -e RENOVATE_REQUIRE_CONFIG=optional  -e RENOVATE_GIT_AUTHOR="Renovate Bot <renovate@hollyhome.ath.cx>" localhost/kubevirt-renovate
 
-podman run --rm -it -e RENOVATE_FORK_TOKEN=$GITHUB_PAT -e RENOVATE_TOKEN=$GITHUB_AUTHOR_TOKEN -e RENOVATE_REPOSITORIES=tmp-kv-mirror/ssp-operator -e LOG_LEVEL=debug  -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make generate", "make manifests", "make fmt"]' -e RENOVATE_CONFIG="$(< ssp-renovate.json)" -e RENOVATE_ONBOARDING=false   -e RENOVATE_GIT_AUTHOR="Renovate Bot <renovate@hollyhome.ath.cx>" renovate
-
+podman run --rm -it -e RENOVATE_FORK_TOKEN=$GITHUB_PAT -e RENOVATE_TOKEN=$GITHUB_AUTHOR_TOKEN -e RENOVATE_REPOSITORIES=kubevirt/ssp-operator -e LOG_LEVEL=debug  -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make generate", "make manifests", "make fmt"]' -e RENOVATE_CONFIG="$(< ssp-renovate.json)" -e RENOVATE_ONBOARDING=false  renovate
 
 ```
 

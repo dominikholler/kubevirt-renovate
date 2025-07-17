@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [":gitSignOff"],
   "requireConfig": "ignored",
+  "gitAuthor": "Renovate Bot <renovate@hollyhome.ath.cx>",
   "baseBranches": [
       "main"
   ],
