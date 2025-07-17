@@ -7,9 +7,6 @@
   ],
   "enabledManagers": ["gomod"],
   "postUpdateOptions": ["gomodTidy"],
-  "ignorePaths": [
-      "staging"
-  ],
   "packageRules": [
     {
       "enabled": false,
