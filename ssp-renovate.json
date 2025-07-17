@@ -1,0 +1,43 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [":gitSignOff"],
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "requireConfig": "ignored",
+  "baseBranches": [
+      "main"
+  ],
+  "enabledManagers": ["gomod"],
+  "postUpdateOptions": ["gomodTidy"],
+  "ignorePaths": [
+      "staging"
+  ],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackageNames": ["gomodules.xyz/jsonpatch/v2"]
+    },
+    {
+      "groupName": "all dependencies",
+      "groupSlug": "all-dependecies",
+      "matchPackageNames": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor",
+        "major"
+      ]
+    }
+  ],
+  "postUpgradeTasks": {
+        "commands": [
+            "make vendor",
+            "make generate",
+            "make manifests",
+            "make fmt"
+        ],
+        "executionMode": "branch"
+  }
+}
