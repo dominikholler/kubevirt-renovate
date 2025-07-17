@@ -12,7 +12,9 @@
       "enabled": false,
       "matchPackageNames": [
 	      "gomodules.xyz/jsonpatch/v2",
-	      "kubevirt.io/ssp-operator/api"
+	      "kubevirt.io/ssp-operator/api",
+	      "github.com/openshift/api",
+	      "github.com/openshift/library-go"
       ]
     },
     {
