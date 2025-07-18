@@ -7,6 +7,7 @@
       "main",
       "release-1.6"
   ],
+  "pruneStaleBranches": false,
   "enabledManagers": ["gomod"],
   "postUpdateOptions": ["gomodTidy"],
   "ignorePaths": [
