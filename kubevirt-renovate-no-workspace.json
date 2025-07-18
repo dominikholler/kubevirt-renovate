@@ -3,12 +3,13 @@
   "extends": [":gitSignOff", "security:only-security-updates"],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "labels": ["release-note-none"],
   "baseBranches": [
       "release-1.5",
       "release-1.4",
       "release-1.3",
-      "release-1.2"
+      "release-1.2",
+      "release-1.1",
+      "release-1.0"
   ],
   "enabledManagers": ["gomod"],
   "postUpdateOptions": ["gomodTidy"],
@@ -26,6 +27,7 @@
         ],
         "executionMode": "branch"
   },
+  "prTitle": "[{{baseBranch}}] {{commitMessage}}",
   "prBodyNotes": [
       "### Release note\n```release-note\nUpdate dependecy {{depName}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}\n```\n"
   ]

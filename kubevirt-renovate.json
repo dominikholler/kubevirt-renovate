@@ -18,6 +18,7 @@
         ],
         "executionMode": "branch"
   },
+  "prTitle": "[{{baseBranch}}] {{commitMessage}}",
   "prBodyNotes": [
       "### Release note\n```release-note\nUpdate dependecy {{depName}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}\n```\n"
   ]

@@ -16,7 +16,7 @@
   ],
   "postUpgradeTasks": {
         "commands": [
-            "make deps-update"
+            "DOCKER=0 make deps-update"
         ],
         "executionMode": "branch"
   },
