@@ -15,8 +15,7 @@ podman run --rm -it --pull=always \
     -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make generate", "make manifests", "make fmt"]' \
     -e RENOVATE_CONFIG="$(< ssp-renovate.json)" \
     -e RENOVATE_ONBOARDING=false  \
-    renovate
-
+    ghcr.io/renovatebot/renovate
 
 
 buildah build --pull=always  --format docker -t kubevirt-renovate
