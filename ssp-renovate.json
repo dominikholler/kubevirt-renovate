@@ -25,16 +25,27 @@
     },
     {
       "groupName": "all dependencies",
-      "groupSlug": "all-dependecies",
-      "matchPackageNames": [
-        "*"
-      ],
       "matchUpdateTypes": [
         "digest",
         "patch",
-        "minor",
-        "major"
+        "minor"
+      ],
+      "enabled": true
+    },
+    {
+      "groupName": "major dependencies",
+      "matchUpdateTypes": ["major"],
+      "matchDepTypes": ["require"],
+      "enabled": true,
+      "postUpdateOptions": [
+          "gomodUpdateImportPaths"
       ]
+    },
+    {
+      "groupName": "ignore",
+      "matchUpdateTypes": ["major"],
+      "matchDepTypes": ["indirect"],
+      "enabled": false
     }
   ],
   "postUpgradeTasks": {
