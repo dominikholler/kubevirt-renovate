@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xe
 
-cd /home/dholler/repos/github/dominikholler/kubevirt-renovate
+cd /home/dholler/repos/github.com/dominikholler/kubevirt-renovate
 
 GITHUB_PAT=
 GITHUB_AUTHOR_TOKEN=
