@@ -4,10 +4,6 @@
   "gitAuthor": "Renovate Bot <renovate@hollyhome.ath.cx>",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "baseBranches": [
-      "main",
-      "release-1.6"
-  ],
   "pruneStaleBranches": false,
   "enabledManagers": ["gomod"],
   "postUpdateOptions": ["gomodTidy"],
