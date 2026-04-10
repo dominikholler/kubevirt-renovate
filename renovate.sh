@@ -7,15 +7,17 @@ GITHUB_PAT=
 GITHUB_AUTHOR_TOKEN=
 LOG_LEVEL=INFO
 
-podman run --rm -it --pull=always \
+
+buildah build --pull=always  -f Containerfile.ssp   -t kubevirt-renovate-ssp
+podman run --rm -it \
     -e RENOVATE_FORK_TOKEN=$GITHUB_PAT \
     -e RENOVATE_TOKEN=$GITHUB_AUTHOR_TOKEN \
     -e RENOVATE_REPOSITORIES=kubevirt/ssp-operator \
     -e LOG_LEVEL=$LOG_LEVEL  \
-    -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make generate", "make manifests", "make fmt"]' \
+    -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make generate", "make manifests", "make fmt", "make bundle"]' \
     -e RENOVATE_CONFIG="$(< ssp-renovate.json)" \
     -e RENOVATE_ONBOARDING=false  \
-    ghcr.io/renovatebot/renovate
+    localhost/kubevirt-renovate-ssp
 
 
 

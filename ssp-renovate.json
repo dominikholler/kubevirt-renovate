@@ -53,7 +53,8 @@
             "make vendor",
             "make generate",
             "make manifests",
-            "make fmt"
+            "make fmt",
+	    "make bundle"
         ],
         "executionMode": "branch"
   },
