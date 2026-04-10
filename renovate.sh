@@ -35,7 +35,8 @@ podman run --rm -it \
     -e RENOVATE_CONFIG="$(< kubevirt-renovate.json)" \
     -e RENOVATE_ONBOARDING=false \
     -e RENOVATE_REQUIRE_CONFIG=optional \
-    -e RENOVATE_BASE_BRANCH_PATTERNS='["main", "release-1.7"]' \
+    -e RENOVATE_DRY_RUN=$RENOVATE_DRY_RUN \
+    -e RENOVATE_BASE_BRANCH_PATTERNS='["main", "release-1.7", "release-1.8"]' \
     localhost/kubevirt-renovate-bazel-650
 
 
@@ -49,6 +50,7 @@ podman run --rm -it \
     -e RENOVATE_CONFIG="$(< kubevirt-renovate.json)" \
     -e RENOVATE_ONBOARDING=false \
     -e RENOVATE_REQUIRE_CONFIG=optional \
+    -e RENOVATE_DRY_RUN=$RENOVATE_DRY_RUN \
     -e RENOVATE_BASE_BRANCH_PATTERNS='["release-1.6"]' \
     localhost/kubevirt-renovate-bazel-541
 
@@ -61,6 +63,7 @@ podman run --rm -it \
     -e RENOVATE_CONFIG="$(< kubevirt-renovate-no-workspace.json)" \
     -e RENOVATE_ONBOARDING=false \
     -e RENOVATE_REQUIRE_CONFIG=optional \
+    -e RENOVATE_DRY_RUN=$RENOVATE_DRY_RUN \
     localhost/kubevirt-renovate-bazel-541
 
 
