@@ -25,9 +25,12 @@
   ],
   "postUpgradeTasks": {
         "commands": [
-            "KUBEVIRT_RUN_UNNESTED=true make deps-update"
+            "make deps-update"
         ],
         "executionMode": "branch"
+  },
+  "customEnvVariables": {
+    "KUBEVIRT_RUN_UNNESTED": "true"
   },
   "prTitle": "[{{baseBranch}}] {{commitMessage}}",
   "prBodyNotes": [
