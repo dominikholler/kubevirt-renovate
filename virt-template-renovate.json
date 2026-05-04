@@ -1,0 +1,69 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [":gitSignOff"],
+  "requireConfig": "ignored",
+  "gitAuthor": "Renovate Bot <renovate@hollyhome.ath.cx>",
+  "baseBranches": [
+      "main"
+  ],
+  "enabledManagers": ["gomod"],
+  "postUpdateOptions": ["gomodTidy"],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackageNames": [
+	      "github.com/openshift/api"
+      ]
+    },
+    {
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["indirect"],
+      "enabled": true
+    },
+    {
+      "groupName": "all dependencies",
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor"
+      ],
+      "enabled": true
+    },
+    {
+      "groupName": "major dependencies",
+      "matchUpdateTypes": ["major"],
+      "matchDepTypes": ["require"],
+      "enabled": true,
+      "postUpdateOptions": [
+          "gomodUpdateImportPaths"
+      ]
+    },
+{
+      "description": "Update of k8s, kubevirt, and controller-runtime needs an additional adjustment",
+      "matchPackagePrefixes": [
+        "k8s.io/",
+        "kubevirt.io/",
+        "sigs.k8s.io/",
+        "github.com/openshift/",
+        "github.com/prometheus-operator/"
+      ],
+      "enabled": false
+    },
+    {
+      "groupName": "ignore",
+      "matchUpdateTypes": ["major"],
+      "matchDepTypes": ["indirect"],
+      "enabled": false
+    }
+  ],
+  "postUpgradeTasks": {
+        "commands": [
+	    "make vendor",
+            "make all"
+        ],
+        "executionMode": "branch"
+  },
+  "prBodyNotes": [
+      "### Release note\n```release-note\nUpdate dependecy {{depName}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}\n```\n"
+  ]
+}
