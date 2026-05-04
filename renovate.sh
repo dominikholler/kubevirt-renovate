@@ -5,6 +5,7 @@ cd /home/dholler/repos/github.com/dominikholler/kubevirt-renovate
 
 GITHUB_PAT=
 GITHUB_AUTHOR_TOKEN=
+#LOG_LEVEL=DEBUG
 LOG_LEVEL=INFO
 #RENOVATE_DRY_RUN=full
 RENOVATE_DRY_RUN=null
@@ -24,7 +25,7 @@ if $UPDATE_TEMPLATE ; then
     -e RENOVATE_REPOSITORIES=$REPO \
     -e LOG_LEVEL=$LOG_LEVEL  \
     -e RENOVATE_CONFIG="$(< virt-template-renovate.json)" \
-    -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make all"]' \
+    -e RENOVATE_ALLOWED_POST_UPGRADE_COMMANDS='["make vendor", "make generate", "make manifests", "make fmt", "make vet"]' \
     -e RENOVATE_ONBOARDING=false  \
     -e RENOVATE_DRY_RUN=$RENOVATE_DRY_RUN \
     ghcr.io/renovatebot/renovate
@@ -45,8 +46,8 @@ if $UPDATE_SSP ; then
 fi
 
 if $UPDATE_KUBEVIRT ; then
-REPO=kubevirt/kubevirt
-#REPO=tmp-kv-mirror/kubevirttest
+  REPO=kubevirt/kubevirt
+  #REPO=tmp-kv-mirror/kubevirttest
 
   buildah build --pull=always --build-arg BAZEL_VERSION=6.5.0 --format docker -t kubevirt-renovate-bazel-650
   podman run --rm -it \

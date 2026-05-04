@@ -41,6 +41,14 @@
 {
       "description": "Update of k8s, kubevirt, and controller-runtime needs an additional adjustment",
       "matchPackagePrefixes": [
+        "golang.org/x/",
+	"google.golang.org/",
+        "go.opentelemetry.io/",
+	"github.com/onsi/ginkgo/",
+	"github.com/go-openapi/",
+	"github.com/grpc-ecosystem/",
+	"github.com/prometheus/procfs",
+	"go.etcd.io/etcd/",
         "k8s.io/",
         "kubevirt.io/",
         "sigs.k8s.io/",
@@ -59,7 +67,10 @@
   "postUpgradeTasks": {
         "commands": [
 	    "make vendor",
-            "make all"
+	    "make generate",
+	    "make manifests",
+	    "make fmt",
+	    "make vet"
         ],
         "executionMode": "branch"
   },
